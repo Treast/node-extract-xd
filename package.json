@@ -1,0 +1,37 @@
+{
+  "name": "extract-xd",
+  "version": "1.0.0",
+  "main": "dist/index.min.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "bin": {
+    "extract-xd": "dist/index.min.js"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch --progress",
+    "test": "jest --coverage"
+  },
+  "description": "A CLI tool to extract images from XD files",
+  "repository": "https://github.com/Treast/node-extract-xd",
+  "author": "Vincent Riva <vincent.riva@outlook.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.2.4",
+    "@types/node": "^18.11.14",
+    "coveralls": "^3.1.1",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "decompress": "^4.2.1",
+    "file-type": "^18.0.0"
+  }
+}

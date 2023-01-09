@@ -1,0 +1,29 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 19.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19.x'
+      - name: Install GhostScript
+        run: sudo apt-get install -y ghostscript
+      - name: Install Yarn globally
+        run: npm install --global yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: yarn test
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@1.1.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
